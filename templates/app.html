@@ -6,55 +6,74 @@
 <title>Аура — запись</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif; }
   body {
-    background:#1a1625; color:#fff; padding:20px;
     background:linear-gradient(160deg,#1a1625,#2a1f3d);
-    min-height:100vh;
+    color:#fff; min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
   }
-  h1 { text-align:center; margin-bottom:8px;
+  .card {
+    width:100%; max-width:440px;
+    background:rgba(45,38,64,0.55);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(168,85,247,0.25);
+    border-radius:24px;
+    padding:32px 26px;
+    box-shadow:0 20px 60px rgba(168,85,247,0.25);
+  }
+  h1 {
+    text-align:center; margin-bottom:8px; font-size:26px;
     background:linear-gradient(90deg,#a855f7,#ec4899);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    font-size:26px;
   }
-  p.sub { text-align:center; color:#aaa; margin-bottom:24px; font-size:14px; }
-  label { display:block; margin:14px 0 6px; font-weight:bold; font-size:14px; }
+  p.sub { text-align:center; color:#b3aac2; margin-bottom:26px; font-size:14px; }
+  label { display:block; margin:16px 0 7px; font-weight:600; font-size:14px; color:#e5ddf0; }
   input, select {
-    width:100%; padding:14px; border:none; border-radius:12px;
-    background:#2d2640; color:#fff; font-size:15px;
+    width:100%; padding:14px 16px; border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px; background:rgba(26,22,37,0.6); color:#fff; font-size:15px;
+    transition:0.25s;
   }
-  input:focus, select:focus { outline:2px solid #a855f7; }
+  input::placeholder { color:#7d7590; }
+  input:focus, select:focus {
+    outline:none; border-color:#a855f7;
+    box-shadow:0 0 0 4px rgba(168,85,247,0.15);
+  }
   button {
-    width:100%; padding:16px; margin-top:24px; border:none;
-    border-radius:14px; font-size:16px; font-weight:bold; color:#fff;
+    width:100%; padding:16px; margin-top:28px; border:none;
+    border-radius:16px; font-size:16px; font-weight:700; color:#fff;
     background:linear-gradient(90deg,#a855f7,#ec4899); cursor:pointer;
+    transition:0.25s; box-shadow:0 8px 24px rgba(236,72,153,0.35);
   }
-  button:active { opacity:0.85; }
+  button:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(236,72,153,0.5); }
+  button:active { transform:translateY(0); opacity:0.9; }
 </style>
 </head>
 <body>
-  <h1>✨ Запишитесь онлайн</h1>
-  <p class="sub">Оставьте заявку — мы перезвоним</p>
+  <div class="card">
+    <h1>✨ Запишитесь онлайн</h1>
+    <p class="sub">Оставьте заявку — мы перезвоним</p>
 
-  <label>Ваше имя</label>
-  <input id="name" placeholder="Александров Леон">
+    <label>Ваше имя</label>
+    <input id="name" placeholder="Александров Леон">
 
-  <label>Телефон</label>
-  <input id="phone" type="tel" placeholder="+7 900 000 00 00">
+    <label>Телефон</label>
+    <input id="phone" type="tel" placeholder="+7 900 000 00 00">
 
-  <label>Услуга</label>
-  <select id="service">
-    <option>💇 Стрижка и укладка</option>
-    <option>💅 Маникюр</option>
-    <option>💆 Уход за лицом</option>
-    <option>🎨 Окрашивание</option>
-    <option>👁 Брови и ресницы</option>
-  </select>
+    <label>Услуга</label>
+    <select id="service">
+      <option>💇 Стрижка и укладка</option>
+      <option>💅 Маникюр</option>
+      <option>💆 Уход за лицом</option>
+      <option>🎨 Окрашивание</option>
+      <option>👁 Брови и ресницы</option>
+    </select>
 
-  <label>Удобные дата и время</label>
-  <input id="datetime" placeholder="12 января, 15:00">
+    <label>Удобные дата и время</label>
+    <input id="datetime" placeholder="12 января, 15:00">
 
-  <button onclick="send()">Отправить заявку 💜</button>
+    <button onclick="send()">Отправить заявку 💜</button>
+  </div>
 
 <script>
   const tg = window.Telegram.WebApp;
