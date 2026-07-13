@@ -1,17 +1,18 @@
-# send.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 TG_TOKEN = os.environ.get("TG_TOKEN")
 TG_ADMIN = os.environ.get("TG_ADMIN")
 
-@app.route("/send", methods=["POST"])
+@app.route("/send", methods=["POST", "OPTIONS"])
 def send():
+    if request.method == "OPTIONS":
+        return jsonify({"ok": True})
     d = request.json
     text = (
         f"🔔 НОВАЯ ЗАЯВКА С САЙТА!\n\n"
