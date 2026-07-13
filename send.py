@@ -27,7 +27,6 @@ def send():
     )
     return jsonify({"ok": True})
 
-# ---------- ОТДАЧА MINI APP ----------
 @app.route("/app")
 def mini_app():
     return render_template("app.html")
