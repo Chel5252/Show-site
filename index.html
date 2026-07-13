@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Студия красоты «Аура» — запись онлайн</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+        --main: #7c5cff;
+        --main2: #ff6ba9;
+        --dark: #1a1a2e;
+        --gray: #6b7280;
+    }
+    body {
+        font-family: 'Segoe UI', -apple-system, sans-serif;
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* ===== ШАПКА ===== */
+    header {
+        position: fixed; top: 0; width: 100%; z-index: 100;
+        background: rgba(255,255,255,0.85);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+    nav {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 16px 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .logo {
+        font-size: 24px; font-weight: 800;
+        background: linear-gradient(135deg, var(--main), var(--main2));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+        text-decoration: none; color: var(--dark);
+        font-weight: 500; transition: 0.3s;
+    }
+    .nav-links a:hover { color: var(--main); }
+    .btn {
+        display: inline-block; padding: 12px 26px; border-radius: 50px;
+        background: linear-gradient(135deg, var(--main), var(--main2));
+        color: #fff; text-decoration: none; font-weight: 600;
+        border: none; cursor: pointer; font-size: 15px;
+        transition: 0.3s; box-shadow: 0 8px 24px rgba(124,92,255,0.35);
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(124,92,255,0.5); }
+    .menu-toggle { display: none; font-size: 28px; background: none; border: none; cursor: pointer; }
+
+    /* ===== ГЛАВНЫЙ ЭКРАН ===== */
+    .hero {
+        min-height: 100vh; display: flex; align-items: center;
+        background: linear-gradient(135deg, #f5f3ff 0%, #fef0f7 100%);
+        position: relative; overflow: hidden;
+    }
+    .hero::before {
+        content: ''; position: absolute; width: 500px; height: 500px;
+        background: radial-gradient(circle, rgba(124,92,255,0.15), transparent);
+        border-radius: 50%; top: -100px; right: -100px;
+    }
+    .hero-content { max-width: 600px; z-index: 2; }
+    .hero h1 {
+        font-size: 54px; font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+        animation: fadeUp 0.8s ease;
+    }
+    .hero h1 span {
+        background: linear-gradient(135deg, var(--main), var(--main2));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 20px; color: var(--gray); margin-bottom: 32px; animation: fadeUp 1s ease; }
+    .hero-btns { display: flex; gap: 16px; animation: fadeUp 1.2s ease; }
+    .btn-outline {
+        padding: 12px 26px; border-radius: 50px; border: 2px solid var(--main);
+        color: var(--main); text-decoration: none; font-weight: 600; transition: 0.3s;
+    }
+    .btn-outline:hover { background: var(--main); color: #fff; }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== ПРЕИМУЩЕСТВА ===== */
+    section { padding: 90px 0; }
+    .section-title { text-align: center; font-size: 40px; font-weight: 800; margin-bottom: 12px; }
+    .section-sub { text-align: center; color: var(--gray); font-size: 18px; margin-bottom: 55px; }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .feature {
+        background: #fff; padding: 36px 28px; border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: 0.4s; text-align: center;
+    }
+    .feature:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(124,92,255,0.15); }
+    .feature-icon {
+        width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 18px;
+        display: flex; align-items: center; justify-content: center; font-size: 32px;
+        background: linear-gradient(135deg, #f5f3ff, #fef0f7);
+    }
+    .feature h3 { font-size: 20px; margin-bottom: 10px; }
+    .feature p { color: var(--gray); }
+
+    /* ===== УСЛУГИ ===== */
+    .services-bg { background: linear-gradient(135deg, #f5f3ff, #fef0f7); }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .service-card {
+        background: #fff; border-radius: 24px; overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.06); transition: 0.4s;
+    }
+    .service-card:hover { transform: translateY(-8px); }
+    .service-img { height: 190px; font-size: 70px; display: flex; align-items: center;
+        justify-content: center; background: linear-gradient(135deg, var(--main), var(--main2)); }
+    .service-body { padding: 26px; }
+    .service-body h3 { font-size: 22px; margin-bottom: 8px; }
+    .service-body p { color: var(--gray); margin-bottom: 16px; }
+    .price { font-size: 26px; font-weight: 800; color: var(--main); }
+
+    /* ===== ОТЗЫВЫ ===== */
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .review {
+        background: #fff; padding: 30px; border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    }
+    .stars { color: #ffb800; font-size: 20px; margin-bottom: 14px; }
+    .review p { font-style: italic; color: #444; margin-bottom: 18px; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+        width: 46px; height: 46px; border-radius: 50%; color: #fff;
+        display: flex; align-items: center; justify-content: center; font-weight: 700;
+        background: linear-gradient(135deg, var(--main), var(--main2));
+    }
+
+    /* ===== ФОРМА ЗАПИСИ ===== */
+    .booking-bg {
+        background: linear-gradient(135deg, var(--dark), #2d2b55); color: #fff;
+    }
+    .booking-bg .section-title, .booking-bg .section-sub { color: #fff; }
+    .booking-bg .section-sub { opacity: 0.8; }
+    .form-box {
+        max-width: 550px; margin: 0 auto; background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px); padding: 40px; border-radius: 28px;
+        border: 1px solid rgba(255,255,255,0.15);
+    }
+    .form-box label { display: block; margin: 16px 0 6px; font-weight: 500; }
+    .form-box input, .form-box select {
+        width: 100%; padding: 14px 16px; border: none; border-radius: 14px;
+        font-size: 16px; background: rgba(255,255,255,0.95); color: #333;
+    }
+    .form-box .btn { width: 100%; margin-top: 26px; padding: 16px; font-size: 17px; }
+    #formMsg { text-align: center; margin-top: 16px; font-weight: 600; }
+
+    /* ===== ФУТЕР ===== */
+    footer { background: var(--dark); color: #aaa; padding: 50px 0 30px; text-align: center; }
+    .footer-contacts { display: flex; justify-content: center; gap: 40px; margin-bottom: 24px; flex-wrap: wrap; }
+    .footer-contacts div { color: #fff; }
+    .footer-contacts span { color: var(--main2); display: block; font-size: 14px; margin-bottom: 4px; }
+    .socials { display: flex; justify-content: center; gap: 16px; margin: 20px 0; }
+    .socials a {
+        width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1);
+        display: flex; align-items: center; justify-content: center; font-size: 20px;
+        text-decoration: none; transition: 0.3s;
+    }
+    .socials a:hover { background: var(--main); transform: translateY(-4px); }
+
+    /* ===== АДАПТИВ ===== */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 36px; }
+        .hero p { font-size: 17px; }
+        .features, .services, .reviews { grid-template-columns: 1fr; }
+        .nav-links {
+            position: fixed; top: 70px; right: -100%; flex-direction: column;
+            background: #fff; width: 70%; height: 100vh; padding: 40px 30px;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.1); transition: 0.4s;
+        }
+        .nav-links.active { right: 0; }
+        .menu-toggle { display: block; }
+        .hero-btns { flex-direction: column; }
+        .section-title { font-size: 30px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header>
+    <nav>
+        <div class="logo">✨ Аура</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#features">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#booking">Контакты</a></li>
+            <li><a href="#booking" class="btn">Записаться</a></li>
+        </ul>
+        <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">☰</button>
+    </nav>
+</header>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Ваша красота — <span>наша забота</span></h1>
+            <p>Современная студия красоты в центре города. Профессиональные мастера, уютная атмосфера и запись онлайн за 30 секунд.</p>
+            <div class="hero-btns">
+                <a href="#booking" class="btn">Записаться онлайн</a>
+                <a href="#services" class="btn-outline">Наши услуги</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+<section id="features">
+    <div class="container">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <p class="section-sub">Мы делаем всё, чтобы вы возвращались</p>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">👩‍🎨</div>
+                <h3>Опытные мастера</h3>
+                <p>Более 10 лет опыта и постоянное обучение новым техникам.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧼</div>
+                <h3>Стерильность</h3>
+                <p>Одноразовые материалы и полная дезинфекция инструментов.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Запись онлайн</h3>
+                <p>Забронируйте удобное время за пару кликов, без звонков.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- УСЛУГИ -->
+<section id="services" class="services-bg">
+    <div class="container">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-sub">Выберите то, что вам нужно</p>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-img">💇‍♀️</div>
+                <div class="service-body">
+                    <h3>Стрижка и укладка</h3>
+                    <p>Модельные стрижки, консультация стилиста, укладка.</p>
+                    <div class="price">от 1 500 ₽</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">💅</div>
+                <div class="service-body">
+                    <h3>Маникюр</h3>
+                    <p>Аппаратный маникюр, покрытие гель-лаком, дизайн.</p>
+                    <div class="price">от 2 000 ₽</div>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">🎨</div>
+                <div class="service-body">
+                    <h3>Окрашивание</h3>
+                    <p>Сложное окрашивание премиальными красителями.</p>
+                    <div class="price">от 3 500 ₽</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ОТЗЫВЫ -->
+<section id="reviews">
+    <div class="container">
+        <h2 class="section-title">Отзывы клиентов</h2>
+        <p class="section-sub">Нам доверяют сотни довольных гостей</p>
+        <div class="reviews">
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>«Хожу сюда уже год, каждый раз всё идеально! Мастера — золотые руки, атмосфера уютная.»</p>
+                <div class="review-author"><div class="avatar">А</div><div><b>Анна К.</b></div></div>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>«Записалась онлайн за минуту, приняли вовремя. Результатом в восторге, буду рекомендовать!»</p>
+                <div class="review-author"><div class="avatar">М</div><div><b>Марина В.</b></div></div>
+            </div>
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>«Лучший маникюр в городе. Стерильно, аккуратно, красиво. Спасибо огромное!»</p>
+                <div class="review-author"><div class="avatar">О</div><div><b>Ольга С.</b></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ФОРМА ЗАПИСИ -->
+<section id="booking" class="booking-bg">
+    <div class="container">
+        <h2 class="section-title">Запишитесь онлайн</h2>
+        <p class="section-sub">Оставьте заявку — мы перезвоним для подтверждения</p>
+        <div class="form-box">
+            <form id="bookingForm">
+                <label>Ваше имя</label>
+                <input type="text" id="name" placeholder="Анна" required>
+                <label>Телефон</label>
+                <input type="tel" id="phone" placeholder="+7 (900) 000-00-00" required>
+                <label>Услуга</label>
+                <select id="service">
+                    <option>Стрижка и укладка</option>
+                    <option>Маникюр</option>
+                    <option>Окрашивание</option>
+                </select>
+                <label>Удобные дата и время</label>
+                <input type="text" id="datetime" placeholder="25 июня, 15:00" required>
+                <button type="submit" class="btn">Отправить заявку 💛</button>
+                <div id="formMsg"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ФУТЕР -->
+<footer>
+    <div class="container">
+        <div class="logo" style="margin-bottom:20px">✨ Аура</div>
+        <div class="footer-contacts">
+            <div><span>Адрес</span>г. Москва, ул. Пример, д. 1</div>
+            <div><span>Телефон</span>+7 (900) 123-45-67</div>
+            <div><span>Режим работы</span>Пн–Вс, 10:00–21:00</div>
+        </div>
+        <div class="socials">
+            <a href="#">📱</a><a href="#">📷</a><a href="#">💬</a>
+        </div>
+        <p style="margin-top:20px; font-size:14px">© 2024 Студия красоты «Аура». Все права защищены.</p>
+    </div>
+</footer>
+
+<script>
+    // Плавная прокрутка по якорям
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+            document.getElementById('navLinks').classList.remove('active');
+        });
+    });
+
+    // Отправка формы
+    document.getElementById('bookingForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const msg = document.getElementById('formMsg');
+        const data = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            service: document.getElementById('service').value,
+            datetime: document.getElementById('datetime').value
+        };
+
+        // === ВАРИАНТ 1: демо (просто показать что работает) ===
+        /*msg.style.color = '#7cffb2';
+        //msg.textContent = '✅ Спасибо, ' + data.name + '! Заявка принята, мы скоро свяжемся с вами.';
+        e.target.reset();
+        */
+
+        // === ВАРИАНТ 2: реальная отправка на сервер (раскомментируй) ===
+        try {
+            const res = await fetch('http://localhost:5000/send', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            if (res.ok) {
+                msg.style.color = '#7cffb2';
+                msg.textContent = '✅ Заявка отправлена!';
+                e.target.reset();
+            }
+        } catch { msg.style.color='#ff9b9b'; msg.textContent='Ошибка, позвоните нам'; }
+        
+    });
+</script>
+</body>
+</html>
