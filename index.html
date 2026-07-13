@@ -368,7 +368,7 @@
 
         // === ВАРИАНТ 2: реальная отправка на сервер (раскомментируй) ===
         try {
-            const res = await fetch('https://show-site.onrender.com', {
+            const res = await fetch('https://show-site.onrender.com/send', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
