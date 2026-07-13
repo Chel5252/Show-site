@@ -27,6 +27,11 @@ def send():
     )
     return jsonify({"ok": True})
 
+# ---------- ОТДАЧА MINI APP ----------
+@app.route("/app")
+def mini_app():
+    return render_template("app.html")
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
