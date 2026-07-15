@@ -583,19 +583,22 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
         if (e.target === this) closeModal();
     });
         // === Кнопка "Наверх" ===
+        // === Кнопка "Наверх" ===
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            scrollTopBtn.style.display = 'block';
-        } else {
-            scrollTopBtn.style.display = 'none';
-        }
-    });
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
 
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 </script>
 </body>
 </html>
