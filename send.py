@@ -28,7 +28,8 @@ def send():
         f"👤 Имя: {d.get('name')}\n"
         f"📞 Телефон: {d.get('phone')}\n"
         f"💅 Услуга: {d.get('service')}\n"
-        f"🕐 Время: {d.get('datetime')}"
+        f"📅 Дата: {d.get('datetime')}\n"
+        f"🕐 Время: {d.get('time')}"
     )
     requests.get(
         f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage",
