@@ -250,6 +250,28 @@
         .hero-btns { flex-direction: column; }
         .section-title { font-size: 30px; }
     }
+            /* Кнопка "Наверх" */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #7cffb2;
+            color: #111;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s, opacity 0.3s;
+        }
+
+        #scrollTopBtn:hover {
+            transform: translateY(-4px);
+        }
 </style>
 </head>
 <body>
@@ -559,6 +581,22 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
     document.getElementById('serviceModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
+        // === Кнопка "Наверх" ===
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 </script>
+<!-- Кнопка "Наверх" -->
+<button id="scrollTopBtn" title="Наверх">⬆️</button>
 </body>
 </html>
