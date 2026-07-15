@@ -298,6 +298,7 @@
 </section>
 
 <!-- ФОРМА ЗАПИСИ -->
+<!-- ФОРМА ЗАПИСИ -->
 <section id="booking" class="booking-bg">
     <div class="container">
         <h2 class="section-title">Запишитесь онлайн</h2>
@@ -314,8 +315,26 @@
                     <option>Маникюр</option>
                     <option>Окрашивание</option>
                 </select>
-                <label>Удобные дата и время</label>
-                <input type="text" id="datetime" placeholder="25 июня, 15:00" required>
+
+                <label>Выберите дату</label>
+                <input type="date" id="date" required>
+
+                <label>Выберите время</label>
+                <div class="time-slots" id="timeSlots">
+                    <button type="button" class="time-btn">10:00</button>
+                    <button type="button" class="time-btn">11:00</button>
+                    <button type="button" class="time-btn">12:00</button>
+                    <button type="button" class="time-btn">13:00</button>
+                    <button type="button" class="time-btn">14:00</button>
+                    <button type="button" class="time-btn">15:00</button>
+                    <button type="button" class="time-btn">16:00</button>
+                    <button type="button" class="time-btn">17:00</button>
+                    <button type="button" class="time-btn">18:00</button>
+                    <button type="button" class="time-btn">19:00</button>
+                    <button type="button" class="time-btn">20:00</button>
+                    <button type="button" class="time-btn">21:00</button>
+                </div>
+
                 <button type="submit" class="btn">Отправить заявку 💛</button>
                 <div id="formMsg"></div>
             </form>
