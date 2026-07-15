@@ -396,16 +396,17 @@
         });
     });
 
-    // Отправка формы
-    document.getElementById('bookingForm').addEventListener('submit', async e => {
-        e.preventDefault();
-        const msg = document.getElementById('formMsg');
-        const data = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            service: document.getElementById('service').value,
-            datetime: document.getElementById('date').value
-        };
+  // Отправка формы
+document.getElementById('bookingForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = document.getElementById('formMsg');
+    const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        datetime: document.getElementById('date').value,
+        time: document.querySelector('.time-btn.selected') ? document.querySelector('.time-btn.selected').textContent : 'не выбрано'
+    };
 
         // === ВАРИАНТ 1: демо (просто показать что работает) ===
         /*msg.style.color = '#7cffb2';
