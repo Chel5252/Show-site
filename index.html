@@ -453,7 +453,8 @@
             justify-content: center;
             z-index: 200;
             padding: 20px;
-            overflow: hidden;
+            overflow-y: auto;
+            padding: 20px 20px 40px;
         }
 
         .modal-overlay.active {
@@ -648,6 +649,10 @@
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 768px) {
+            .hero-video {
+                display: none;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
@@ -737,6 +742,10 @@
 
     <!-- ГЛАВНЫЙ ЭКРАН -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline poster="images/service1.jpg">
+            <source src="Video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Ваша красота — <span>наша забота</span></h1>
