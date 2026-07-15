@@ -117,6 +117,38 @@
     .service-body h3 { font-size: 22px; margin-bottom: 8px; }
     .service-body p { color: var(--gray); margin-bottom: 16px; }
     .price { font-size: 26px; font-weight: 800; color: var(--main); }
+   /* ===== ФОТО В КАРТОЧКАХ И ИКОНКАХ ===== */
+.feature-icon img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 18px;
+}
+.service-img {
+    padding: 0; overflow: hidden;
+}
+.service-img img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+.avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+}
+
+/* ===== КНОПКИ ВЫБОРА ДАТЫ И ВРЕМЕНИ ===== */
+.picker-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px;
+}
+.time-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 6px;
+}
+.pick-btn {
+    padding: 12px 6px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08); color: #fff; cursor: pointer;
+    font-size: 14px; font-weight: 600; transition: 0.25s; text-align: center;
+}
+.pick-btn:hover { border-color: var(--main2); background: rgba(255,255,255,0.15); }
+.pick-btn.active {
+    background: linear-gradient(135deg, var(--main), var(--main2));
+    border-color: transparent; box-shadow: 0 6px 18px rgba(124,92,255,0.5);
+}
+.pick-btn small { display: block; font-size: 11px; opacity: 0.7; font-weight: 400; }
 
     /* ===== ОТЗЫВЫ ===== */
     .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -220,17 +252,17 @@
         <p class="section-sub">Мы делаем всё, чтобы вы возвращались</p>
         <div class="features">
             <div class="feature">
-                <div class="feature-icon">👩‍🎨</div>
+                <div class="feature-icon"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=200&h=200&fit=crop" alt=""></div>
                 <h3>Опытные мастера</h3>
                 <p>Более 10 лет опыта и постоянное обучение новым техникам.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">🧼</div>
+                <div class="feature-icon"><img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=200&h=200&fit=crop" alt=""></div>
                 <h3>Стерильность</h3>
                 <p>Одноразовые материалы и полная дезинфекция инструментов.</p>
             </div>
             <div class="feature">
-                <div class="feature-icon">⚡</div>
+                <div class="feature-icon"><img src="https://images.unsplash.com/photo-1512314889357-e157c22f938d?w=200&h=200&fit=crop" alt=""></div>
                 <h3>Запись онлайн</h3>
                 <p>Забронируйте удобное время за пару кликов, без звонков.</p>
             </div>
@@ -245,7 +277,7 @@
         <p class="section-sub">Выберите то, что вам нужно</p>
         <div class="services">
             <div class="service-card">
-                <div class="service-img">💇‍♀️</div>
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500&h=300&fit=crop" alt="Стрижка"></div>
                 <div class="service-body">
                     <h3>Стрижка и укладка</h3>
                     <p>Модельные стрижки, консультация стилиста, укладка.</p>
@@ -253,7 +285,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img">💅</div>
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=300&fit=crop" alt="Маникюр"></div>
                 <div class="service-body">
                     <h3>Маникюр</h3>
                     <p>Аппаратный маникюр, покрытие гель-лаком, дизайн.</p>
@@ -261,7 +293,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <div class="service-img">🎨</div>
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=300&fit=crop" alt="Окрашивание"></div>
                 <div class="service-body">
                     <h3>Окрашивание</h3>
                     <p>Сложное окрашивание премиальными красителями.</p>
