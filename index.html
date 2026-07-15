@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8">ы
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Студия красоты «Аура» — запись онлайн</title>
     <style>
@@ -282,12 +282,17 @@
         }
 
         .service-img {
-            height: 190px;
-            font-size: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--main), var(--main2));
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .service-body {
@@ -1019,29 +1024,29 @@
             });
         }
 
-            // === Маска и проверка телефона ===
-    const phoneInput = document.getElementById('phone');
+        // === Маска и проверка телефона ===
+        const phoneInput = document.getElementById('phone');
 
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, '');
 
-            if (value.startsWith('8')) {
-                value = '7' + value.slice(1);
-            }
-            if (value.length > 0 && !value.startsWith('7')) {
-                value = '7' + value;
-            }
+                if (value.startsWith('8')) {
+                    value = '7' + value.slice(1);
+                }
+                if (value.length > 0 && !value.startsWith('7')) {
+                    value = '7' + value;
+                }
 
-            let formatted = '+7';
-            if (value.length > 1) formatted += ' (' + value.slice(1, 4);
-            if (value.length >= 5) formatted += ') ' + value.slice(4, 7);
-            if (value.length >= 8) formatted += '-' + value.slice(7, 9);
-            if (value.length >= 10) formatted += '-' + value.slice(9, 11);
+                let formatted = '+7';
+                if (value.length > 1) formatted += ' (' + value.slice(1, 4);
+                if (value.length >= 5) formatted += ') ' + value.slice(4, 7);
+                if (value.length >= 8) formatted += '-' + value.slice(7, 9);
+                if (value.length >= 10) formatted += '-' + value.slice(9, 11);
 
-            e.target.value = formatted;
-        });
-    }
+                e.target.value = formatted;
+            });
+        }
     </script>
 </body>
 
