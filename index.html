@@ -462,13 +462,20 @@
         }
 
         .modal-head {
-            height: 150px;
-            font-size: 60px;
+            height: 220px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, var(--main), var(--main2));
             position: relative;
+            overflow: hidden;
+        }
+
+        .modal-head img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .modal-close {
@@ -981,7 +988,7 @@
                 const title = card.querySelector('h3').textContent;
                 const data = servicesData[title];
                 if (!data) return;
-                document.getElementById('modalIcon').innerHTML = '<img src="' + data.icon + '" style="width:100%; height:220px; object-fit:cover; display:block;">';
+                document.getElementById('modalIcon').innerHTML = '<img src="' + data.icon + '" alt="' + title + '">';
                 document.getElementById('modalTitle').textContent = title;
                 document.getElementById('modalDesc').textContent = data.desc;
                 document.getElementById('modalPrice').textContent = data.price;
