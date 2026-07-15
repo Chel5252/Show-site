@@ -143,6 +143,8 @@
     background: rgba(255,255,255,0.08); color: #fff; cursor: pointer;
     font-size: 14px; font-weight: 600; transition: 0.25s; text-align: center;
 }
+.feature-icon { overflow: hidden; }
+.pick-btn.disabled { opacity: 0.45; filter: grayscale(0.3); cursor: not-allowed; }
 .pick-btn:hover { border-color: var(--main2); background: rgba(255,255,255,0.15); }
 .pick-btn.active {
     background: linear-gradient(135deg, var(--main), var(--main2));
@@ -233,16 +235,35 @@
 
 <!-- ГЛАВНЫЙ ЭКРАН -->
 <section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Ваша красота — <span>наша забота</span></h1>
-            <p>Современная студия красоты в центре города. Профессиональные мастера, уютная атмосфера и запись онлайн за 30 секунд.</p>
-            <div class="hero-btns">
-                <a href="#booking" class="btn">Записаться онлайн</a>
-                <a href="#services" class="btn-outline">Наши услуги</a>
-            </div>
+    <div class="features">
+    <div class="feature">
+        <div class="feature-icon">
+            <img src="https://images.pexels.com/photos/3992875/pexels-photo-3992875.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=140&h=140"
+                 alt="Опытные мастера"
+                 onerror="this.src='https://picsum.photos/seed/masters/140/140'; this.onerror=null;">
         </div>
+        <h3>Опытные мастера</h3>
+        <p>Более 10 лет опыта и постоянное обучение новым техникам.</p>
     </div>
+    <div class="feature">
+        <div class="feature-icon">
+            <img src="https://images.pexels.com/photos/4098355/pexels-photo-4098355.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=140&h=140"
+                 alt="Стерильность"
+                 onerror="this.src='https://picsum.photos/seed/clean/140/140'; this.onerror=null;">
+        </div>
+        <h3>Стерильность</h3>
+        <p>Одноразовые материалы и полная дезинфекция инструментов.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">
+            <img src="https://images.pexels.com/photos/5081921/pexels-photo-5081921.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=140&h=140"
+                 alt="Запись онлайн"
+                 onerror="this.src='https://picsum.photos/seed/online/140/140'; this.onerror=null;">
+        </div>
+        <h3>Запись онлайн</h3>
+        <p>Забронируйте удобное время за пару кликов, без звонков.</p>
+    </div>
+</div>
 </section>
 
 <!-- ПРЕИМУЩЕСТВА -->
@@ -272,36 +293,44 @@
 
 <!-- УСЛУГИ -->
 <section id="services" class="services-bg">
-    <div class="container">
-        <h2 class="section-title">Наши услуги</h2>
-        <p class="section-sub">Выберите то, что вам нужно</p>
-        <div class="services">
-            <div class="service-card">
-                <div class="service-img"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500&h=300&fit=crop" alt="Стрижка"></div>
-                <div class="service-body">
-                    <h3>Стрижка и укладка</h3>
-                    <p>Модельные стрижки, консультация стилиста, укладка.</p>
-                    <div class="price">от 1 500 ₽</div>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-img"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=300&fit=crop" alt="Маникюр"></div>
-                <div class="service-body">
-                    <h3>Маникюр</h3>
-                    <p>Аппаратный маникюр, покрытие гель-лаком, дизайн.</p>
-                    <div class="price">от 2 000 ₽</div>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-img"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=500&h=300&fit=crop" alt="Окрашивание"></div>
-                <div class="service-body">
-                    <h3>Окрашивание</h3>
-                    <p>Сложное окрашивание премиальными красителями.</p>
-                    <div class="price">от 3 500 ₽</div>
-                </div>
-            </div>
+    <div class="services">
+    <div class="service-card">
+        <div class="service-img">
+            <img src="https://images.pexels.com/photos/3993440/pexels-photo-3993440.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500&h=300"
+                 alt="Стрижка"
+                 onerror="this.src='https://picsum.photos/seed/haircut/500/300'; this.onerror=null;">
+        </div>
+        <div class="service-body">
+            <h3>Стрижка и укладка</h3>
+            <p>Модельные стрижки, консультация стилиста, укладка.</p>
+            <div class="price">от 1 500 ₽</div>
         </div>
     </div>
+    <div class="service-card">
+        <div class="service-img">
+            <img src="https://images.pexels.com/photos/3997391/pexels-photo-3997391.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500&h=300"
+                 alt="Маникюр"
+                 onerror="this.src='https://picsum.photos/seed/manicure/500/300'; this.onerror=null;">
+        </div>
+        <div class="service-body">
+            <h3>Маникюр</h3>
+            <p>Аппаратный маникюр, покрытие гель-лаком, дизайн.</p>
+            <div class="price">от 2 000 ₽</div>
+        </div>
+    </div>
+    <div class="service-card">
+        <div class="service-img">
+            <img src="https://images.pexels.com/photos/2067373/pexels-photo-2067373.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500&h=300"
+                 alt="Окрашивание"
+                 onerror="this.src='https://picsum.photos/seed/coloring/500/300'; this.onerror=null;">
+        </div>
+        <div class="service-body">
+            <h3>Окрашивание</h3>
+            <p>Сложное окрашивание премиальными красителями.</p>
+            <div class="price">от 3 500 ₽</div>
+        </div>
+    </div>
+</div>
 </section>
 
 <!-- ОТЗЫВЫ -->
@@ -347,7 +376,9 @@
                     <option>Окрашивание</option>
                 </select>
                 <label>Удобные дата и время</label>
-                <input type="text" id="datetime" placeholder="25 июня, 15:00" required>
+<div id="datePicker" class="picker-grid"></div>
+<div id="timePicker" class="time-grid"></div>
+<input type="text" id="datetime" placeholder="Выберите дату и время" readonly required>
                 <button type="submit" class="btn">Отправить заявку 💛</button>
                 <div id="formMsg"></div>
             </form>
@@ -380,7 +411,108 @@
             document.getElementById('navLinks').classList.remove('active');
         });
     });
+// === Календарь и время ===
+const datePicker = document.getElementById('datePicker');
+const timePicker = document.getElementById('timePicker');
+const datetimeInput = document.getElementById('datetime');
 
+const WORK_START = 10; // 10:00
+const WORK_END = 20;   // 20:00
+const SLOT_STEP = 60;  // мин
+
+let selectedDate = null;
+let selectedTime = null;
+
+// генерация ближайших 10 дней
+function generateDays(count = 10) {
+    const days = [];
+    const formatterDay = new Intl.DateTimeFormat('ru-RU', { weekday: 'short' });
+    const formatterMonth = new Intl.DateTimeFormat('ru-RU', { month: 'short' });
+
+    for (let i = 0; i < count; i++) {
+        const d = new Date();
+        d.setHours(0,0,0,0);
+        d.setDate(d.getDate() + i);
+        const dayName = formatterDay.format(d).replace('.', '');
+        const dayNum = d.getDate();
+        const monthName = formatterMonth.format(d).replace('.', '');
+        days.push({ date: d, label: `${dayNum} ${monthName}`, sub: dayName });
+    }
+    return days;
+}
+
+function renderDays() {
+    datePicker.innerHTML = '';
+    const days = generateDays();
+    days.forEach(({ date, label, sub }) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pick-btn';
+        btn.innerHTML = `${label}<small>${sub}</small>`;
+        btn.addEventListener('click', () => {
+            selectedDate = date;
+            [...datePicker.children].forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderTimes();
+            updateValue();
+        });
+        datePicker.appendChild(btn);
+    });
+}
+
+function generateTimesForDate(date) {
+    const times = [];
+    if (!date) return times;
+
+    const isToday = (new Date()).toDateString() === date.toDateString();
+    const now = new Date();
+
+    for (let h = WORK_START; h <= WORK_END; h++) {
+        for (let m = 0; m < 60; m += SLOT_STEP) {
+            const slot = new Date(date);
+            slot.setHours(h, m, 0, 0);
+            const label = slot.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+            const disabled = isToday && slot <= now;
+            times.push({ slot, label, disabled });
+        }
+    }
+    return times;
+}
+
+function renderTimes() {
+    timePicker.innerHTML = '';
+    const times = generateTimesForDate(selectedDate);
+    times.forEach(({ slot, label, disabled }) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pick-btn' + (disabled ? ' disabled' : '');
+        btn.textContent = label;
+        if (!disabled) {
+            btn.addEventListener('click', () => {
+                selectedTime = slot;
+                [...timePicker.children].forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                updateValue();
+            });
+        }
+        timePicker.appendChild(btn);
+    });
+}
+
+function updateValue() {
+    if (selectedDate && selectedTime) {
+        const dateStr = selectedDate.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long' });
+        const timeStr = selectedTime.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+        datetimeInput.value = `${dateStr}, ${timeStr}`;
+    } else if (selectedDate) {
+        const dateStr = selectedDate.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long' });
+        datetimeInput.value = `${dateStr}`;
+    } else {
+        datetimeInput.value = '';
+    }
+}
+
+renderDays();
     // Отправка формы
     document.getElementById('bookingForm').addEventListener('submit', async e => {
         e.preventDefault();
