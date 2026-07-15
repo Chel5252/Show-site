@@ -151,6 +151,48 @@
     }
     .form-box .btn { width: 100%; margin-top: 26px; padding: 16px; font-size: 17px; }
     #formMsg { text-align: center; margin-top: 16px; font-weight: 600; }
+        /* ===== МОДАЛЬНОЕ ОКНО УСЛУГИ ===== */
+    .service-card { cursor: pointer; }
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(26,26,46,0.7); backdrop-filter: blur(6px);
+        display: none; align-items: center; justify-content: center;
+        z-index: 200; padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+        background: #fff; border-radius: 28px; max-width: 480px; width: 100%;
+        overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+        animation: modalUp 0.4s ease;
+    }
+    @keyframes modalUp {
+        from { opacity: 0; transform: translateY(40px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-head {
+        height: 150px; font-size: 60px; display: flex;
+        align-items: center; justify-content: center;
+        background: linear-gradient(135deg, var(--main), var(--main2));
+        position: relative;
+    }
+    .modal-close {
+        position: absolute; top: 16px; right: 16px;
+        width: 38px; height: 38px; border-radius: 50%; border: none;
+        background: rgba(255,255,255,0.9); font-size: 20px; cursor: pointer;
+        display: flex; align-items: center; justify-content: center; transition: 0.3s;
+    }
+    .modal-close:hover { background: #fff; transform: rotate(90deg); }
+    .modal-body { padding: 30px; }
+    .modal-body h3 { font-size: 26px; margin-bottom: 12px; }
+    .modal-body p { color: var(--gray); margin-bottom: 18px; }
+    .modal-list { list-style: none; margin-bottom: 20px; }
+    .modal-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+    .modal-list li::before { content: '✓ '; color: var(--main); font-weight: 700; }
+    .modal-price {
+        font-size: 30px; font-weight: 800; color: var(--main); margin-bottom: 20px;
+    }
+    .modal-body .btn { width: 100%; }
+
         /* ===== КНОПКИ ВЫБОРА ВРЕМЕНИ ===== */
     .time-slots {
         display: grid;
@@ -386,6 +428,23 @@
     </div>
 </footer>
 
+<!-- МОДАЛЬНОЕ ОКНО УСЛУГИ -->
+<div class="modal-overlay" id="serviceModal">
+    <div class="modal">
+        <div class="modal-head">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <span id="modalIcon">💅</span>
+        </div>
+        <div class="modal-body">
+            <h3 id="modalTitle">Услуга</h3>
+            <p id="modalDesc">Описание</p>
+            <ul class="modal-list" id="modalList"></ul>
+            <div class="modal-price" id="modalPrice">от 0 ₽</div>
+            <a href="#booking" class="btn" onclick="closeModal()">Записаться на услугу</a>
+        </div>
+    </div>
+</div>
+
 <script>
     // Плавная прокрутка по якорям
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -444,6 +503,61 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
             // Потом выделяем ТУ, на которую нажали
             btn.classList.add('selected');
         });
+    });
+    
+    // ===== ДАННЫЕ ОБ УСЛУГАХ =====
+    const servicesData = {
+        "Стрижка и укладка": {
+            icon: "💇‍♀️",
+            desc: "Модельная стрижка от профессионального стилиста с учётом типа лица и структуры волос.",
+            list: ["Консультация стилиста", "Мытьё головы и уход", "Модельная стрижка", "Укладка феном"],
+            price: "от 1 500 ₽"
+        },
+        "Маникюр": {
+            icon: "💅",
+            desc: "Аккуратный аппаратный маникюр с покрытием гель-лаком и стойким результатом до 3 недель.",
+            list: ["Аппаратный маникюр", "Покрытие гель-лаком", "Уход за кутикулой", "Дизайн на выбор"],
+            price: "от 2 000 ₽"
+        },
+        "Окрашивание": {
+            icon: "🎨",
+            desc: "Сложное окрашивание премиальными безопасными красителями. Стойкий цвет и здоровые волосы.",
+            list: ["Подбор оттенка", "Премиальные красители", "Тонирование", "Уходовая маска"],
+            price: "от 3 500 ₽"
+        }
+    };
+
+    // При клике на карточку — открываем окно
+    document.querySelectorAll('.service-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            const title = card.querySelector('h3').textContent;
+            const data = servicesData[title];
+            if (!data) return;
+            document.getElementById('modalIcon').textContent = data.icon;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = data.desc;
+            document.getElementById('modalPrice').textContent = data.price;
+            // Список "что входит"
+            const listEl = document.getElementById('modalList');
+            listEl.innerHTML = '';
+            data.list.forEach(function(item) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                listEl.appendChild(li);
+            });
+            // Запоминаем услугу, чтобы подставить в форму
+            document.getElementById('service').value = title;
+            document.getElementById('serviceModal').classList.add('active');
+        });
+    });
+
+    // Закрытие окна
+    function closeModal() {
+        document.getElementById('serviceModal').classList.remove('active');
+    }
+    // Закрытие по клику на тёмный фон
+    document.getElementById('serviceModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
     });
 </script>
 </body>
