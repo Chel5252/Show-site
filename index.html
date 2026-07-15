@@ -428,6 +428,10 @@
             color: #333;
         }
 
+        .form-box input[type="time"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+
         .form-box .btn {
             width: 100%;
             margin-top: 26px;
@@ -919,20 +923,10 @@
                     <input type="date" id="date" required>
 
                     <label>Выберите время</label>
-                    <div class="time-slots" id="timeSlots">
-                        <button type="button" class="time-btn">10:00</button>
-                        <button type="button" class="time-btn">11:00</button>
-                        <button type="button" class="time-btn">12:00</button>
-                        <button type="button" class="time-btn">13:00</button>
-                        <button type="button" class="time-btn">14:00</button>
-                        <button type="button" class="time-btn">15:00</button>
-                        <button type="button" class="time-btn">16:00</button>
-                        <button type="button" class="time-btn">17:00</button>
-                        <button type="button" class="time-btn">18:00</button>
-                        <button type="button" class="time-btn">19:00</button>
-                        <button type="button" class="time-btn">20:00</button>
-                        <button type="button" class="time-btn">21:00</button>
-                    </div>
+                    <input type="time" id="time" name="time" min="10:00" max="21:00" required>
+                    <small style="color: rgba(255,255,255,0.6); display:block; margin-top:6px;">
+                        Работаем с 10:00 до 21:00
+                    </small>
 
                     <button type="submit" class="btn">Отправить заявку 💛</button>
                     <div id="formMsg"></div>
@@ -995,7 +989,7 @@
                 phone: document.getElementById('phone').value,
                 service: document.getElementById('service').value,
                 datetime: document.getElementById('date').value,
-                time: document.querySelector('.time-btn.selected') ? document.querySelector('.time-btn.selected').textContent : 'не выбрано'
+                time: document.getElementById('time').value
             };
 
             // === ВАРИАНТ 1: демо (просто показать что работает) ===
@@ -1018,21 +1012,6 @@
                 }
             } catch { msg.style.color = '#ff9b9b'; msg.textContent = 'Ошибка, позвоните нам'; }
 
-        });
-
-        // Находим все кнопки времени
-        const timeButtons = document.querySelectorAll('.time-btn');
-
-        // На каждую кнопку вешаем обработчик клика
-        timeButtons.forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                // Сначала снимаем выделение со ВСЕХ кнопок
-                timeButtons.forEach(function (b) {
-                    b.classList.remove('selected');
-                });
-                // Потом выделяем ТУ, на которую нажали
-                btn.classList.add('selected');
-            });
         });
 
         // ===== ДАННЫЕ ОБ УСЛУГАХ =====
