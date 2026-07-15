@@ -466,7 +466,8 @@
         </div>
     </div>
 </div>
-
+<!-- Кнопка "Наверх" -->
+<button id="scrollTopBtn" title="Наверх">⬆️</button>
 <script>
     // Плавная прокрутка по якорям
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -510,10 +511,7 @@ document.getElementById('bookingForm').addEventListener('submit', async e => {
         } catch { msg.style.color='#ff9b9b'; msg.textContent='Ошибка, позвоните нам'; }
 
     });
-</script>
-<!-- Кнопка "Наверх" -->
-<button id="scrollTopBtn" title="Наверх">⬆️</button>
-<script>
+
     // Находим все кнопки времени
     const timeButtons = document.querySelectorAll('.time-btn');
 
