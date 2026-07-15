@@ -429,5 +429,21 @@
 
     });
 </script>
+<script>
+    // Находим все кнопки времени
+    const timeButtons = document.querySelectorAll('.time-btn');
+
+    // На каждую кнопку вешаем обработчик клика
+    timeButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Сначала снимаем выделение со ВСЕХ кнопок
+            timeButtons.forEach(function(b) {
+                b.classList.remove('selected');
+            });
+            // Потом выделяем ТУ, на которую нажали
+            btn.classList.add('selected');
+        });
+    });
+</script>
 </body>
 </html>
