@@ -955,19 +955,19 @@
         // ===== ДАННЫЕ ОБ УСЛУГАХ =====
         const servicesData = {
             "Стрижка и укладка": {
-                icon: "💇‍♀️",
+                icon: "images/service1.jpg",
                 desc: "Модельная стрижка от профессионального стилиста с учётом типа лица и структуры волос.",
                 list: ["Консультация стилиста", "Мытьё головы и уход", "Модельная стрижка", "Укладка феном"],
                 price: "от 1 500 ₽"
             },
             "Маникюр": {
-                icon: "💅",
+                icon: "images/service2.jpg",
                 desc: "Аккуратный аппаратный маникюр с покрытием гель-лаком и стойким результатом до 3 недель.",
                 list: ["Аппаратный маникюр", "Покрытие гель-лаком", "Уход за кутикулой", "Дизайн на выбор"],
                 price: "от 2 000 ₽"
             },
             "Окрашивание": {
-                icon: "🎨",
+                icon: "images/service3.jpg",
                 desc: "Сложное окрашивание премиальными безопасными красителями. Стойкий цвет и здоровые волосы.",
                 list: ["Подбор оттенка", "Премиальные красители", "Тонирование", "Уходовая маска"],
                 price: "от 3 500 ₽"
@@ -980,7 +980,7 @@
                 const title = card.querySelector('h3').textContent;
                 const data = servicesData[title];
                 if (!data) return;
-                document.getElementById('modalIcon').textContent = data.icon;
+                document.getElementById('modalIcon').innerHTML = '<img src="' + data.icon + '" style="width:100%; height:100%; object-fit:cover; border-radius:20px 20px 0 0;">';
                 document.getElementById('modalTitle').textContent = title;
                 document.getElementById('modalDesc').textContent = data.desc;
                 document.getElementById('modalPrice').textContent = data.price;
@@ -1006,7 +1006,7 @@
         document.getElementById('serviceModal').addEventListener('click', function (e) {
             if (e.target === this) closeModal();
         });
-        // === Кнопка "Наверх" ===
+
         // === Кнопка "Наверх" ===
         const scrollTopBtn = document.getElementById('scrollTopBtn');
 
